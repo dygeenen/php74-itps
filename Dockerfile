@@ -11,7 +11,7 @@ RUN pecl install mongodb && \
     echo extension=mongodb.so >> `php --ini | grep "Scan for additional .ini files" | sed -e "s|.*:\s*||"`/30-mongodb.ini
     
 # MSSQL
-RUN INSTALL_PREREQUIS_MSSQL="php-pdo php-xml php-pear php-devel re2c gcc-c++ gcc" && \
+RUN INSTALL_PREREQUIS_MSSQL="php-pdo php-xml php-pear php-devel gcc-c++ gcc" && \
     yum install -y --setopt=tsflags=nodocs $INSTALL_PREREQUIS_MSSQL --nogpgcheck && \
     rpm -V $INSTALL_PREREQUIS_MSSQL && \
     yum -y clean all --enablerepo='*'
